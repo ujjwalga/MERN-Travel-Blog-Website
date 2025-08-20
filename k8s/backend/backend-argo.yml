@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: backend-argo
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/keshav-raj-gautam/wanderlust.git'
+    targetRevision: main
+    path: k8s/backend
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: wanderlust
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true

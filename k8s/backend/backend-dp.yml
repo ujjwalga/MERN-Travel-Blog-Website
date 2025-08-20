@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-dp
+  namespace: wanderlust
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-dp
+  template:
+    metadata:
+      labels:
+        app: backend-dp
+    spec:
+      containers:
+      - name: backend
+        image: keshav0503/wanderlust-backend:1.30
+        ports:
+        - containerPort: 3000

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-dp
+  namespace: wanderlust
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend-dp
+  template:
+    metadata:
+      labels:
+        app: frontend-dp
+    spec:
+      containers:
+      - name: frontend
+        image: keshav0503/wanderlust-frontend:1.30
+        ports:
+        - containerPort: 5173
+        env:
+            - name: HOST
+              value: "0.0.0.0"
