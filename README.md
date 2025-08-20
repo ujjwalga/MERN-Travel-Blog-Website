@@ -72,9 +72,6 @@ The deployed application and cluster performance are monitored using **Prometheu
 
 After a successful deployment, Jenkins sends an email notification with build and deployment details.
 
-📧 *Sample Email:*  
-![Deployment Email](./assets/success-email.png)
-
 ---
 
 ## ⚙️ Pre-requisites to Implement This Project
